@@ -8,9 +8,24 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-    HashTable hTable(100000, hashFunction_3);
+    int (*h_func)(string, size_t);
+    switch (stoi(argv[2], 0))
+    {
+        case 1:
+            h_func = &hashFunction_1;
+            break;
+        case 2:
+            h_func = &hashFunction_2;
+            break;
+        case 3:
+            h_func = &hashFunction_3;
+            break;
+        default:
+            exit(1);
+    }
+    HashTable hTable(stoi(argv[1], 0), h_func);
     string s;
     /*for (int i = 0; i < 20; ++i)
     {
@@ -22,10 +37,11 @@ int main()
     {
         hTable.insert(s);
     }
-    for (int i = 0; i < 50000; ++i)
+    for (int i = 0; i < 5; ++i)
     {
         hTable.erase("^");
     }
+    cout << hTable;
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
