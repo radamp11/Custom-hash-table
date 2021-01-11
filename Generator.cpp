@@ -5,9 +5,8 @@
 
 using namespace std;
 
-const int N = 5;
 
-int main()
+int main(int argc, char* argv[])
 {
 
     unordered_map<char, pair<unordered_map<char, int>, int>> num_of_occur;
@@ -60,6 +59,8 @@ int main()
     random_device rd;
     mt19937 gen(rd());
 
+    string arg = argv[1];
+    const int N = stoi(arg, 0);
     int i = 0;
     while (i < N)
     {
