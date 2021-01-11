@@ -52,12 +52,11 @@ def g(text):
     text = "".join([replacements.get(c, c) for c in text])
     return text
 
-filename = "text_file.txt"
+filename_in = "text_file.txt"
+filename_out = "text.txt"
 
-with codecs.open(filename, 'r', encoding='utf8') as f:
+with codecs.open(filename_in, 'r', encoding='utf8') as f:
     text = f.read()
 text = g(text)
-with codecs.open(filename, 'w', encoding='utf8') as f:
+with codecs.open(filename_out, 'w', encoding='utf8') as f:
     f.write(text)
-
-print(text)

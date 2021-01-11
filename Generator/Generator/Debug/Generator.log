@@ -1,3 +1,0 @@
-﻿  Generator.cpp
-C:\Users\Rafał\source\repos\Generator\Generator\Generator.cpp(65,25): warning C4101: 'next_char': unreferenced local variable
-  Generator.vcxproj -> C:\Users\Rafał\source\repos\Generator\Debug\Generator.exe
