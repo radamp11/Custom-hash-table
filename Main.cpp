@@ -72,17 +72,23 @@ int main(int argc, char* argv[])
                         }
                         fstream file;
                         file.open(fileName, ios::in);
-                        while (elems > 0)
+                        if (file.is_open())
                         {
-                            file >> s;
-                            auto start = std::chrono::steady_clock::now();
-                            hTable.insert(s);
-                            auto end = std::chrono::steady_clock::now();
-                            elapsed_seconds += end - start;
-                            --elems;
+                            while (elems > 0)
+                            {
+                                file >> s;
+                                auto start = std::chrono::steady_clock::now();
+                                hTable.insert(s);
+                                auto end = std::chrono::steady_clock::now();
+                                elapsed_seconds += end - start;
+                                --elems;
+                            }
+                            cout << "Done!\n";
                         }
+                        else
+                            file.clear();
                         file.close();
-                        file.clear();
+                        
                     }
                     break;
                     default:
@@ -128,17 +134,23 @@ int main(int argc, char* argv[])
                         }
                         fstream file;
                         file.open(fileName, ios::in);
-                        while (elems > 0)
+                        if (file.is_open())
                         {
-                            file >> s;
-                            auto start = std::chrono::steady_clock::now();
-                            hTable.erase(s);
-                            auto end = std::chrono::steady_clock::now();
-                            elapsed_seconds += end - start;
-                            --elems;
+                            while (elems > 0)
+                            {
+                                file >> s;
+                                auto start = std::chrono::steady_clock::now();
+                                hTable.erase(s);
+                                auto end = std::chrono::steady_clock::now();
+                                elapsed_seconds += end - start;
+                                --elems;
+                            }
+                            cout << "Done!\n";
                         }
+                        else
+                            file.clear();
                         file.close();
-                        file.clear();
+                        
                     }
                     break;
                     default:
