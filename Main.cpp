@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     int choice = -1;
     while (choice != 0)
     {
-        cout << "Choose what you want to do:\n1.Insert  2.Erase  3.Print  0.Exit\n";
+        cout << "Choose what you want to do:\n1.Insert  2.Erase  3.Print  4.Change the input file  0.Exit\n";
         cin >> choice;
         switch (choice)
         {
@@ -81,6 +81,8 @@ int main(int argc, char* argv[])
                             elapsed_seconds += end - start;
                             --elems;
                         }
+                        file.close();
+                        file.clear();
                     }
                     break;
                     default:
@@ -135,6 +137,8 @@ int main(int argc, char* argv[])
                             elapsed_seconds += end - start;
                             --elems;
                         }
+                        file.close();
+                        file.clear();
                     }
                     break;
                     default:
@@ -146,6 +150,11 @@ int main(int argc, char* argv[])
                 break;
             case 3:
                 cout << hTable;
+                break;
+            case 4:
+                cout << "Enter the name of the input file: ";
+                cin >> fileName;
+                cout << fileName;
                 break;
             case 0:
                 cout << "Bye!" << endl;
