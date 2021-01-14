@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     }
     else
     {
-        cerr << "Nie udalo sie odczytac z pliku.";
+        cerr << "Cannot open the file.";
         return 1;
     }
     input.close();

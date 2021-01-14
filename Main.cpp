@@ -54,6 +54,7 @@ int main(int argc, char* argv[])
                 {
                     case 1:
                     {
+                        cout << "Enter your words (" << elems << "):" << endl;
                         while (elems > 0)
                         {   
                             cin >> s;
@@ -120,6 +121,7 @@ int main(int argc, char* argv[])
                 {
                     case 1:
                     {
+                        cout << "Enter your words (" << elems << "):" << endl;
                         while (elems > 0)
                         {  
                             cin >> s;
