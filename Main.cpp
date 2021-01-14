@@ -28,12 +28,14 @@ int main(int argc, char* argv[])
     }
 
     string fileName = "";
+    
 
     HashTable hTable(stoi(argv[1], 0), h_func);
     int choice = -1;
     while (choice != 0)
     {
-        cout << "Choose what you want to do:\n1.Insert  2.Erase  3.Print  4.Change the input file  0.Exit\n";
+        cout << "Choose what you want to do:\n1.Insert  2.Erase  3.Print  4.Change the input file\n"
+                    "5.Clear the table  0.Exit\n";
         cin >> choice;
         switch (choice)
         {
@@ -41,9 +43,9 @@ int main(int argc, char* argv[])
             {
                 string s;
                 int elems;
+                int inserted = 0;
                 int ver;
                 std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>();
-                cout << elapsed_seconds.count() << endl;
                 cout << "Insert elements. Declare the number of elements to insert." << endl;
                 cin >> elems;
                 cout << "Enter: 1 to read from std input, 2 to read from file" << endl;
@@ -58,9 +60,12 @@ int main(int argc, char* argv[])
                             auto start = std::chrono::steady_clock::now();
                             hTable.insert(s);
                             auto end = std::chrono::steady_clock::now();
+                            ++inserted;
                             elapsed_seconds += end - start;
                             --elems;
                         }
+                        cout << "Done!\n";
+                        cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
                     }
                     break;
                     case 2:
@@ -80,10 +85,12 @@ int main(int argc, char* argv[])
                                 auto start = std::chrono::steady_clock::now();
                                 hTable.insert(s);
                                 auto end = std::chrono::steady_clock::now();
+                                ++inserted;
                                 elapsed_seconds += end - start;
                                 --elems;
                             }
                             cout << "Done!\n";
+                            cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
                         }
                         else
                             file.clear();
@@ -96,14 +103,13 @@ int main(int argc, char* argv[])
                         break;
                 }
 
-                std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
-
             }
                 break;
             case 2:
             {
                 string s;
                 int elems;
+                int erased = 0;
                 int ver;
                 std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>();
                 cout << "Erase elements. Enter the number of elements to erase: ";
@@ -120,9 +126,12 @@ int main(int argc, char* argv[])
                             auto start = std::chrono::steady_clock::now();
                             hTable.erase(s);
                             auto end = std::chrono::steady_clock::now();
+                            ++erased;
                             elapsed_seconds += end - start;
                             --elems;
                         }
+                        cout << "Done!\n";
+                        cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
                     }
                     break;
                     case 2:
@@ -142,10 +151,12 @@ int main(int argc, char* argv[])
                                 auto start = std::chrono::steady_clock::now();
                                 hTable.erase(s);
                                 auto end = std::chrono::steady_clock::now();
+                                ++erased;
                                 elapsed_seconds += end - start;
                                 --elems;
                             }
                             cout << "Done!\n";
+                            cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
                         }
                         else
                             file.clear();
@@ -157,16 +168,19 @@ int main(int argc, char* argv[])
                         cout << "Unknown command." << endl;
                         break;
                 }
-                std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n" << endl;
             }
                 break;
             case 3:
-                cout << hTable;
+                cout << hTable << endl;
                 break;
             case 4:
                 cout << "Enter the name of the input file: ";
                 cin >> fileName;
                 cout << fileName;
+                break;
+            case 5:
+                hTable.clear();
+                cout << "Done." << endl;
                 break;
             case 0:
                 cout << "Bye!" << endl;
@@ -175,10 +189,5 @@ int main(int argc, char* argv[])
                 cout << "Unknown command." << endl;
                 break;
         }
-    }
-
-    for (int i = 0; i < 5; ++i)
-    {
-        hTable.erase("^");
     }
 }

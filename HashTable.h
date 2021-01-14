@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 class HashTable
 {
@@ -21,6 +22,7 @@ public:
 	HashTable(int k, int (*func)(std::string, size_t));
 	int insert(const std::string&);
 	int erase(const std::string&);
+	void clear();
 	std::string operator[](int);
 	size_t operator[](const std::string&);
 	friend std::ostream& operator<<(std::ostream& os, const HashTable&);

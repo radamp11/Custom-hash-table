@@ -4,6 +4,8 @@ using namespace std;
 
 HashTable::HashTable(int k, int (*func)(string, size_t))
 {
+	if (k <= 0)
+		throw invalid_argument("Size of the table must be greater than 0.");
 	this->size = k;
 	this->table = new TField [k];
 	this->hashFunc = func;
@@ -52,6 +54,16 @@ int HashTable::erase(const string& s)
 		}
 	}
 	return -1;
+}
+
+void HashTable::clear()
+{
+	for (int i = 0; i < size; ++i)
+		if (!table[i].isEmpty)
+		{
+			delete table[i].str;
+			table[i].isEmpty = true;
+		}
 }
 
 string HashTable::operator[](int i)
