@@ -1,4 +1,6 @@
-﻿#include "HashTable.h"
+﻿// Authors: Rafał Surdej, Adam Stec -- 01.2021
+
+#include "HashTable.h"
 
 using namespace std;
 
@@ -64,16 +66,6 @@ void HashTable::clear()
 			delete table[i].str;
 			table[i].isEmpty = true;
 		}
-}
-
-string HashTable::operator[](int i)
-{
-	return *table[i].str;
-}
-
-size_t HashTable::operator[](const string& s)
-{
-	return (*hashFunc)(s, size);
 }
 
 ostream& operator<<(ostream& os, const HashTable& htable)

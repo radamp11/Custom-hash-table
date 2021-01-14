@@ -5,7 +5,7 @@ tak
 2
 1000
 2
-generated.txt
+generated2.txt
 2
 3000
 2

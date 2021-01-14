@@ -1,3 +1,5 @@
+# Authors: Rafał Surdej, Adam Stec -- 01.2021
+
 import codecs
 
 def g(text):

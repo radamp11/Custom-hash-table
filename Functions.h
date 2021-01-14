@@ -1,3 +1,5 @@
+// Authors: Rafał Surdej, Adam Stec -- 01.2021
+
 #pragma once
 
 #include <string>
@@ -26,6 +28,6 @@ int hashFunction_2(std::string s, size_t size)
 
 int hashFunction_3(std::string s, size_t size)
 {
-	return 100 % size;
+	return 123456 % size;
 }
 

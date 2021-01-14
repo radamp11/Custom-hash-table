@@ -1,5 +1,4 @@
-// Hash table.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Authors: Rafał Surdej, Adam Stec -- 01.2021
 
 #include <iostream>
 #include <fstream>
@@ -43,7 +42,6 @@ int main(int argc, char* argv[])
             {
                 string s;
                 int elems;
-                int inserted = 0;
                 int ver;
                 std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>();
                 cout << "Insert elements. Declare the number of elements to insert." << endl;
@@ -61,7 +59,6 @@ int main(int argc, char* argv[])
                             auto start = std::chrono::steady_clock::now();
                             hTable.insert(s);
                             auto end = std::chrono::steady_clock::now();
-                            ++inserted;
                             elapsed_seconds += end - start;
                             --elems;
                         }
@@ -86,7 +83,6 @@ int main(int argc, char* argv[])
                                 auto start = std::chrono::steady_clock::now();
                                 hTable.insert(s);
                                 auto end = std::chrono::steady_clock::now();
-                                ++inserted;
                                 elapsed_seconds += end - start;
                                 --elems;
                             }
@@ -110,7 +106,6 @@ int main(int argc, char* argv[])
             {
                 string s;
                 int elems;
-                int erased = 0;
                 int ver;
                 std::chrono::duration<double> elapsed_seconds = std::chrono::duration<double>();
                 cout << "Erase elements. Enter the number of elements to erase: ";
@@ -128,7 +123,6 @@ int main(int argc, char* argv[])
                             auto start = std::chrono::steady_clock::now();
                             hTable.erase(s);
                             auto end = std::chrono::steady_clock::now();
-                            ++erased;
                             elapsed_seconds += end - start;
                             --elems;
                         }
@@ -153,7 +147,6 @@ int main(int argc, char* argv[])
                                 auto start = std::chrono::steady_clock::now();
                                 hTable.erase(s);
                                 auto end = std::chrono::steady_clock::now();
-                                ++erased;
                                 elapsed_seconds += end - start;
                                 --elems;
                             }

@@ -1,3 +1,5 @@
+// Authors: Rafał Surdej, Adam Stec -- 01.2021
+
 #pragma once
 
 #include <iostream>
@@ -23,8 +25,6 @@ public:
 	int insert(const std::string&);
 	int erase(const std::string&);
 	void clear();
-	std::string operator[](int);
-	size_t operator[](const std::string&);
 	friend std::ostream& operator<<(std::ostream& os, const HashTable&);
 	~HashTable();
 };

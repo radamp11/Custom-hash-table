@@ -1,5 +1,4 @@
-﻿// Generator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿// Authors: Rafał Surdej, Adam Stec -- 01.2021
 
 #include "Generator.h"
 
